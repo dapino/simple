@@ -28,3 +28,22 @@ Run the cointainer:
 ```
 docker-compose up -d
 ```
+
+If you want to create another repository based o this project, you can change the remote origin with the following command:
+
+```
+git remote set-url origin <url>
+```
+
+To run the migrations use the following onstruction:
+```
+docker-compose exec web python manage.py migrate --noinput
+```
+
+If you get and error, put down the container and remove volumnes with 
+```
+docker-compose down -v
+```
+Rebuild the container.
+
+This project is based on [Michael Herman Tutorial](https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/).
