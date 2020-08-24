@@ -8,8 +8,8 @@ Contains all the hierarcy of the services that offers the platform: groups, cate
 class Skus (models.Model):
 
     name = models.CharField(max_length=200)
-    description = models.CharField(max_length=500)
-    specification = models.CharField(max_length=500)
+    description = models.CharField(blank=True, null=True, max_length=500)
+    specification = models.CharField(blank=True, null=True, max_length=500)
     price = models.IntegerField(default=0)
     time_stimated = models.DurationField()
     StatusType = models.TextChoices('StatusType', 'Enabled Disabled')

@@ -33,3 +33,16 @@ To run the migrations use the following instruction:
 ```
 docker-compose exec web python manage.py migrate --noinput
 ```
+
+The following commands will be useful in the deployment of the project when is running on docker:
+
+```bash
+#Stablish the migrations
+docker-compose exec api python manage.py makemigrations
+
+#Make the migrations
+docker-compose exec api python manage.py migrate
+
+#Create admin user
+docker-compose exec api python manage.py createsuperuser
+```
