@@ -1,15 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.parsers import JSONParser
-from services.models import Skus
-from services.serializers import SkusSerializer
+from services.models import Services
+from services.serializers import ServicesSerializer
 
-def list_skus(request):
+def simple_services(request):
     """
     List all skus.
     """
     if request.method == 'GET':
-        skus = Skus.objects.all()
-        serializer = SkusSerializer(skus, many=True)
+        services = Services.objects.all()
+        serializer = ServicesSerializer(services, many=True)
         return JsonResponse(serializer.data, safe=False)
 

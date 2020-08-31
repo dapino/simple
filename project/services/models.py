@@ -17,6 +17,9 @@ class Skus (models.Model):
 
     class Meta:
         verbose_name_plural = "Skus"
+    
+    def __str__(self):
+        return self.name
 
 
 class Subcategories (models.Model):
@@ -25,6 +28,8 @@ class Subcategories (models.Model):
     class Meta:
         verbose_name_plural = "Subcategories"
 
+    def __str__(self):
+        return self.name
 
 class Categories (models.Model):
     name = models.CharField(max_length=200)
@@ -32,6 +37,8 @@ class Categories (models.Model):
     class Meta:
         verbose_name_plural = "Categories"
 
+    def __str__(self):
+        return self.name
 
 class Groups (models.Model):
     name = models.CharField(max_length=200)
@@ -39,12 +46,15 @@ class Groups (models.Model):
     class Meta:
         verbose_name_plural = "Groups"
 
+    def __str__(self):
+        return self.name
+
 
 class Services (models.Model):
-    models.ForeignKey(Skus, on_delete=models.CASCADE)
-    models.ForeignKey(Subcategories, on_delete=models.CASCADE)
-    models.ForeignKey(Categories, on_delete=models.CASCADE)
-    models.ForeignKey(Groups, on_delete=models.CASCADE)
+    idgroups = models.ForeignKey(Groups, on_delete=models.CASCADE)
+    idcategories = models.ForeignKey(Categories, on_delete=models.CASCADE)
+    idsubcategories = models.ForeignKey(Subcategories, on_delete=models.CASCADE)
+    idskus = models.ForeignKey(Skus, on_delete=models.CASCADE) 
 
     class Meta:
         verbose_name_plural = "Services"
