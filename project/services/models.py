@@ -21,7 +21,6 @@ class Skus (models.Model):
     def __str__(self):
         return self.name
 
-
 class Subcategories (models.Model):
     name = models.CharField(max_length=200)
 
@@ -48,7 +47,6 @@ class Groups (models.Model):
 
     def __str__(self):
         return self.name
-
 
 class Services (models.Model):
     idgroups = models.ForeignKey(Groups, on_delete=models.CASCADE)
